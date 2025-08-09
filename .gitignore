@@ -20,3 +20,5 @@ Thumbs.db
 # Frontend (if any later)
 node_modules/
 dist/
+
+*.jpg

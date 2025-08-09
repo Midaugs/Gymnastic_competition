@@ -1,5 +1,12 @@
 import { api, API_BASE, clearToken } from "./api.js";
 
+(function(){
+  const n = Number(sessionStorage.getItem("reloadCount") || 0) + 1;
+  sessionStorage.setItem("reloadCount", String(n));
+  console.log("[boot] load #", n, "at", new Date().toISOString());
+  addEventListener("beforeunload", () => console.log("[unload] about to unload"));
+})();
+
 document.getElementById("logout")?.addEventListener("click", () => {
   clearToken(); location.href = "login.html";
 });
@@ -61,6 +68,31 @@ init().catch(e => alert("Failed to load groups: " + e.message));
 
 let currentCompetitionId = null;
 let currentChildren = [];
+
+// after currentCompetitionId is set (keep your existing code)
+pdfLink.addEventListener("click", async (e) => {
+  e.preventDefault();
+  if (!currentCompetitionId) {
+    alert("Create a competition first.");
+    return;
+  }
+  try {
+    // api() returns a Blob for non-JSON responses
+    const blob = await api(`/competitions/${currentCompetitionId}/pdf/`, { method: "GET" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `competition_${currentCompetitionId}_results.pdf`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    alert("Failed to download PDF: " + err.message);
+  }
+});
+
+pdfLink.href = "#"; // we’ll handle click as above
 
 createBtn.addEventListener("click", async () => {
   try {

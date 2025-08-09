@@ -1,4 +1,22 @@
+-----
+
 uvicorn app.main:app --reload
+
+-------
+# simple static server on port 5501
+python -m http.server 5501
+
+------
+
+Open the app pages:
+
+Login: http://127.0.0.1:5501/login.html
+
+Dashboard: http://127.0.0.1:5501/dashboard.html
+
+Competition: http://127.0.0.1:5501/competition.html
+
+-------
 
 /backend/
 app/: All FastAPI logic, models, and database work.

@@ -1,0 +1,68 @@
+<!-- frontend/competition.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><title>Competition</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <script>
+       addEventListener('submit', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('[guard] prevented a form submit from reloading the page');
+       }, true);
+  </script>
+  <header>
+    <h1>Competition</h1>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <button id="logout">Logout</button>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Select Group & Date</h2>
+    <div id="competition-form">  <!-- was form id changed to div id-->
+      <label>Group:
+        <select id="group-select" required></select>
+      </label>
+      <label>Date:
+        <input id="comp-date" type="date" required>
+      </label>
+      <!-- CHANGED: button is explicit type="button" -->
+      <button id="create-competition" type="button">Create Competition</button>
+    </div> <!-- was form id changed to div id-->
+  </section>
+
+  <div id="results-section" hidden>  <!-- was section id changed to div id-->
+    <h2>Enter Results</h2>
+
+    <div class="row header">
+      <span>Child</span>
+      <span>Participated</span>
+      <span>C1</span><span>C2</span><span>C3</span><span>C4</span><span>C5</span>
+      <span>Sum</span><span>Avg</span>
+    </div>
+
+    <!-- CHANGED: was <form id="results-form"></form> -->
+    <div id="results-form"></div>
+
+    <!-- Klaustukas ar sita palikti -->
+    <div id="stats" class="stats">
+      <h3>Group Totals / Averages (participants only)</h3>
+      <div class="stats-grid">
+        <div></div><div>C1</div><div>C2</div><div>C3</div><div>C4</div><div>C5</div>
+        <div>Participants</div><div id="s-part">0</div><div></div><div></div><div></div><div></div>
+        <div>Total</div><div id="s-t1">0</div><div id="s-t2">0</div><div id="s-t3">0</div><div id="s-t4">0</div><div id="s-t5">0</div>
+        <div>Average</div><div id="s-a1">0</div><div id="s-a2">0</div><div id="s-a3">0</div><div id="s-a4">0</div><div id="s-a5">0</div>
+      </div>
+    </div>
+
+    <button id="submit-results">Save Results</button>
+    <div style="margin-top:.75rem"><a id="pdf-link" href="#" target="_blank" rel="noopener">Download PDF</a></div>
+  </section>
+
+  <script type="module" src="js/competition.js"></script>
+</body>
+</html>

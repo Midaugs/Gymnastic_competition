@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><title>Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Dashboard</h1>
+    <nav>
+      <a href="competition.html">Competition</a>
+      <button id="logout">Logout</button>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Create Group</h2>
+    <form id="group-form">
+      <input name="name" placeholder="Group name" required>
+      <button>Create</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Your Groups</h2>
+    <ul id="groups"></ul>
+  </section>
+
+  <section id="children-section" hidden>
+    <h2>Children in <span id="group-title"></span></h2>
+    <form id="child-form">
+      <input name="name" placeholder="Name" required>
+      <input name="surname" placeholder="Surname" required>
+      <input name="birthday" type="date" required>
+      <button>Add Child</button>
+    </form>
+    <ul id="children"></ul>
+  </section>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

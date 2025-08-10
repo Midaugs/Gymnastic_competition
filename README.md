@@ -58,7 +58,7 @@ If you haven’t created a virtual environment, do this first: python -m venv ve
 If you’re using a virtual environment (recommended!), activate it: .\venv\Scripts\activate
 Install Requirements (Including Uvicorn) Install all dependencies from your requirements.txt: pip install -r requirements.txt
 
-🎉 Perfect! Your FastAPI backend is now running and ready!
+Your FastAPI backend is now running and ready!
 You can open your browser and go to:
 http://127.0.0.1:8000/docs
 to see the automatic interactive API documentation (Swagger UI).
@@ -155,3 +155,14 @@ Link your local repo to GitHub and push
 git branch -M main
 git remote add origin https://github.com/Midaugs/Gymnastic_competition.git
 git push -u origin main
+
+-----------------------------------
+
+cd C:\Gymnastic_competition\backend
+
+# create venv (first time only)
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+
+# install deps (first time / when requirements change)
+pip install -r requirements.txt

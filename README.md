@@ -1,19 +1,12 @@
 -----
 
 uvicorn app.main:app --reload
-
--------
-# simple static server on port 5501
 python -m http.server 5501
 
 ------
 
-Open the app pages:
-
 Login: http://127.0.0.1:5501/login.html
-
 Dashboard: http://127.0.0.1:5501/dashboard.html
-
 Competition: http://127.0.0.1:5501/competition.html
 
 -------
@@ -54,45 +47,16 @@ Root
 README.md: Project setup and instructions.
 
 -----------------------------------------------
-If you haven’t created a virtual environment, do this first: python -m venv venv
-If you’re using a virtual environment (recommended!), activate it: .\venv\Scripts\activate
-Install Requirements (Including Uvicorn) Install all dependencies from your requirements.txt: pip install -r requirements.txt
+python -m venv venv
+.\venv\Scripts\activate
+pip install -r requirements.txt
 
-Your FastAPI backend is now running and ready!
-You can open your browser and go to:
+--------------------
+
 http://127.0.0.1:8000/docs
 to see the automatic interactive API documentation (Swagger UI).
 
-Now your backend is ready for:
-Registration
-JWT Authentication
-Group and Child management
-Competition and results
-PDF export of results
-
----------------------------------
-
-Serve this with a simple static server (e.g., VS Code Live Server or python -m http.server 5500 inside frontend/).
-Then set CORS on the backend to allow your frontend origin (e.g., http://127.0.0.1:5500).
-
 --------------------------------------
-
-How to run
-Backend: already running at http://127.0.0.1:8000.
-
-Frontend:
-
-In frontend/, run: python -m http.server 5500
-Open http://127.0.0.1:5500/login.html
-
-Or use VS Code Live Server.
-
-Flow:
-
-Register → Login → Dashboard: create group & add children → Competition: create competition → enter results → Download PDF.
-
-------------------------------------------------
-
 git --version
 
 --------------
@@ -139,6 +103,7 @@ First commit
 
 git add .
 git commit -m "Initial commit: backend + frontend"
+
 --------------
 
 Create the repo on GitHub
